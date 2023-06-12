@@ -1,7 +1,17 @@
 function AddNewApp($newAppName, $newUrl) {
     # Load the XML file
+    $path = 'C:\_git\ServiceCheckerDEV\config.xml'
+    $pathPrev = 'C:\_git\ServiceCheckerDEV\config_prev.xml'
+    if (Test-Path $jsonAppSetPrevPath) {
+        # Use the existing file path
+        $workPath = $pathPrev
+    }
+    else {
+        # Use the fallback file path
+        $workPath = $path
+    }
 
-    [xml]$xml = Get-Content $path
+    [xml]$xml = Get-Content $workPath
 
     # Create the first new app node
     $newApp1 = $xml.CreateElement("app")
@@ -30,6 +40,7 @@ function AddNewApp($newAppName, $newUrl) {
     $xml.DocumentElement.AppendChild($newApp2) | Out-Null    
 
     # Save the XML back to the file
+    $xml.Save($pathPrev)
     $xml.Save($path)
 }
 

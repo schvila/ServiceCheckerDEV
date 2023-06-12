@@ -1,9 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <config>
-  <app name="UpdateTransactions_Leris_STAGE" type="url" period="2" timerPeriod="60000" url="https://stageleris.adell-trading.cz/G000/CommonService.svc/UpdateTransactions">
-    <![CDATA[{"password":"SRvce..4Tur126@pa"}]]>
-  </app>
-  <app name="LogoutInactivePlayers_Leris_STAGE" type="url" period="2" timerPeriod="60000" url="https://stageleris.adell-trading.cz/G000/PlayerService.svc/LogoutInactivePlayers">
-    <![CDATA[{"password":"SRvce..4Tur126@pa"}]]>
-  </app>  
+  <app name="UpdateTransactions_Luckybet_Stage" type="url" period="2" timerPeriod="60000" url="https://stageluckybet.adell-trading.cz/G000/CommonService.svc/UpdateTransactions"><![CDATA[{"password":"SRvce..4Tur126@pa"}]]></app>
+  <app name="LogoutInactivePlayers_Luckybet_Stage" type="url" period="2" timerPeriod="60000" url="https://stageluckybet.adell-trading.cz/G000/PlayerService.svc/LogoutInactivePlayers"><![CDATA[{"password":"SRvce..4Tur126@pa"}]]></app>
+  <app name="UpdateTransactions_Leris_Stage" type="url" period="2" timerPeriod="60000" url="https://stageleris.adell-trading.cz/G000/CommonService.svc/UpdateTransactions"><![CDATA[{"password":"SRvce..4Tur126@pa"}]]></app>
+  <app name="LogoutInactivePlayers_Leris_Stage" type="url" period="2" timerPeriod="60000" url="https://stageleris.adell-trading.cz/G000/PlayerService.svc/LogoutInactivePlayers"><![CDATA[{"password":"SRvce..4Tur126@pa"}]]></app>
 </config>

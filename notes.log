@@ -1,2 +1,45 @@
-c:\IIS\Application\OC.ServiceCheckerNet7\OC.ServiceChecker.exe
-
+The OC.ServiceCheckerNet7 service already exists; it will be stopped 
+June 12th 2023 11:01:57Info
+Stopping the OC.ServiceCheckerNet7 service 
+June 12th 2023 11:01:57Info
+Service OC.ServiceCheckerNet7 stopped 
+June 12th 2023 11:01:57Info
+Purging the directory 'C:\Kestrel\ServiceChecker' 
+June 12th 2023 11:01:57Info
+Leaving files and directories that match any of: 'config.xml' 
+June 12th 2023 11:01:57Info
+Copying package contents to 'C:\Kestrel\ServiceChecker' 
+June 12th 2023 11:01:57Info
+Copied 42 files 
+June 12th 2023 11:01:58Info
+The OC.ServiceCheckerNet7 service already exists, it will be reconfigured. 
+June 12th 2023 11:01:58Info
+sc.exe config "OC.ServiceCheckerNet7" binPath= \"C:\Kestrel\ServiceChecker\OC.ServiceChecker.exe\"  DisplayName= OC.ServiceCheckerNet7 depend= "/" start= "delayed-auto" obj= "LocalSystem" 
+June 12th 2023 11:01:58Info
+[SC] OpenService FAILED 1060: 
+June 12th 2023 11:01:58Info
+The specified service does not exist as an installed service. 
+June 12th 2023 11:01:58Error
+OperationStopped: sc.exe config failed with exit code: 1060 
+June 12th 2023 11:01:58Error
+At C:\Kestrel\ServiceChecker\Octopus.Features.WindowsService_BeforePostDeploy.ps1:144 char:3 
+June 12th 2023 11:01:58Error
++         throw "sc.exe config failed with exit code: $LastExitCode" 
+June 12th 2023 11:01:58Error
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+June 12th 2023 11:01:58Error
+at <ScriptBlock>, C:\Kestrel\ServiceChecker\Octopus.Features.WindowsService_BeforePostDeploy.ps1: line 144 
+June 12th 2023 11:01:58Error
+at <ScriptBlock>, <No file>: line 1 
+June 12th 2023 11:01:58Error
+at <ScriptBlock>, C:\Kestrel\ServiceChecker\Octopus.FunctionAppenderContext.ps1: line 211 
+June 12th 2023 11:01:58Error
+at <ScriptBlock>, C:\Kestrel\ServiceChecker\Bootstrap.Octopus.FunctionAppenderContext.ps1: line 1942 
+June 12th 2023 11:01:58Error
+at <ScriptBlock>, <No file>: line 1 
+June 12th 2023 11:01:58Error
+at <ScriptBlock>, <No file>: line 1 
+June 12th 2023 11:01:58Error
+Running rollback conventions... 
+June 12th 2023 11:01:58Error
+Script 'C:\Kestrel\ServiceChecker\Octopus.Features.WindowsService_BeforePostDeploy.ps1' returned non-zero exit code: 
