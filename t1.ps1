@@ -1,11 +1,21 @@
-
 function AddNewApp($newAppName, $newUrl) {
     # Load the XML file
-    [xml]$xml = Get-Content 'C:\path\to\your\file.xml'
+    $path = "#{KestrelDir}\#{Octopus.Step.Name}\config.xml"
+    Write-Host "config $path"
+    [xml]$xml = Get-Content $path
+
+    # Check if the app already exists
+    $app1Name = "UpdateTransactions_" + $newAppName
+    $app2Name = "LogoutInactivePlayers_" + $newAppName
+
+    if (($xml.config.app | Where-Object { $_.name -eq $app1Name }) -or ($xml.config.app | Where-Object { $_.name -eq $app2Name })) {
+        Write-Host "App '$app1Name' or '$app2Name' already exists."
+        return
+    }
 
     # Create the first new app node
     $newApp1 = $xml.CreateElement("app")
-    $newApp1.SetAttribute("name", "UpdateTransactions_" + $newAppName)
+    $newApp1.SetAttribute("name", $app1Name)
     $newApp1.SetAttribute("type", "url")
     $newApp1.SetAttribute("period", "2")
     $newApp1.SetAttribute("timerPeriod", "60000")
@@ -15,7 +25,7 @@ function AddNewApp($newAppName, $newUrl) {
 
     # Create the second new app node
     $newApp2 = $xml.CreateElement("app")
-    $newApp2.SetAttribute("name", "LogoutInactivePlayers_" + $newAppName)
+    $newApp2.SetAttribute("name", $app2Name)
     $newApp2.SetAttribute("type", "url")
     $newApp2.SetAttribute("period", "2")
     $newApp2.SetAttribute("timerPeriod", "60000")
@@ -24,9 +34,11 @@ function AddNewApp($newAppName, $newUrl) {
     $newApp2.AppendChild($cdata2)
 
     # Append the new app nodes to the XML's config node
-    $xml.config.AppendChild($newApp1) | Out-Null
-    $xml.config.AppendChild($newApp2) | Out-Null
+    $xml.DocumentElement.AppendChild($newApp1) | Out-Null
+    $xml.DocumentElement.AppendChild($newApp2) | Out-Null    
 
     # Save the XML back to the file
-    $xml.Save('C:\path\to\your\file.xml')
+    $xml.Save($path)
 }
+
+AddNewApp -newAppName "#{Tenant.Alias}" -newUrl "#{Tenant.BaseUrl}"
