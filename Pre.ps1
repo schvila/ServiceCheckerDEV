@@ -21,4 +21,3 @@ catch {
     Write-Host "Uninstall Error: $_"
     #exit 1
 }
-```

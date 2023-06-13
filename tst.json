@@ -1,0 +1,16 @@
+{
+    "Logging": {
+      "LogLevel": {
+        "Default": "Information",
+        "Microsoft.Hosting.Lifetime": "Information"
+      }
+    },
+  
+    "LogPath": "c:\\\iis\\LOG\\",
+    "ConfigFile": "C:\\Kestrel\\ServiceChecker\\config.xml",
+    "OCProxyFile": "C:\\Kestrel\\OCProxy\\OCProxy.exe"
+  
+  
+  }
+  
+  
