@@ -2,9 +2,6 @@ $serviceName = "OC.ServiceChecker"
 Write-Host "PreDeploy uninstall $serviceName service."
 try {
     $service = Get-Service $serviceName -ErrorAction SilentlyContinue
-    #$service = Get-Service 'OC.ServiceCheckerNet7' | Select-Object -Property ServicesDependedOn
-
-
     if ($service) {
         Write-Host "unistalling existing the $serviceName service"
         # Stop the service
