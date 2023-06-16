@@ -48,3 +48,12 @@ function AddNewApp($newAppName, $newUrl) {
 }
 
 AddNewApp -newAppName "#{Tenant.Alias}" -newUrl "#{Tenant.BaseUrl}"
+
+#restart service
+$serviceName = "OC.ServiceChecker"
+# Stop the service
+Stop-Service $serviceName -Force
+
+# Wait until the service has stopped or for 30 seconds
+#$service.WaitForStatus('Stopped', '00:00:30')
+Start-Service $serviceName
